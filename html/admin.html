@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ระบบหลังบ้าน</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <h1>จัดการสินค้า (หลังบ้าน)</h1>
+</header>
+
+<div class="container">
+  <form id="product-form">
+    <input type="text" id="name" placeholder="ชื่อสินค้า" required />
+    <input type="number" id="price" placeholder="ราคา" required />
+    <button type="submit">เพิ่มสินค้า</button>
+  </form>
+
+  <ul id="product-list"></ul>
+</div>
+
+<script>
+  const form = document.getElementById("product-form");
+  const list = document.getElementById("product-list");
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+    const name = document.getElementById("name").value;
+    const price = parseFloat(document.getElementById("price").value);
+    const li = document.createElement("li");
+    li.textContent = `${name} - ฿${price}`;
+    list.appendChild(li);
+    form.reset();
+  });
+</script>
+
+</body>
+</html>
